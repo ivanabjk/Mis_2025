@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:recipe_app/widgets/my_drawer.dart';
 import '../providers/categories_provider.dart';
 import '../providers/random_recipe_provider.dart';
 import '../widgets/category_card.dart';
@@ -56,66 +57,72 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
           ),
         ],
       ),
+      drawer: MyDrawer(),
       body: categoriesProvider.loading
           ? const Center(child: CircularProgressIndicator())
-          : Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Intro text
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 35.0, vertical: 12),
-            child: Text(
-              "Select your favorite food category.",
-              style: TextStyle(fontSize: 18),
+          : SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Intro text
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 35.0, vertical: 12),
+              child: Text(
+                "Select your favorite food category.",
+                style: TextStyle(fontSize: 18),
+              ),
             ),
-          ),
 
-          // Search bar
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0),
-            child: AppSearchBar(
-              hint: 'Search categories...',
-              onChanged: (value) {
-                setState(() => _searchQuery = value);
-              },
+            // Search bar
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: AppSearchBar(
+                hint: 'Search categories...',
+                onChanged: (value) {
+                  setState(() => _searchQuery = value);
+                },
+              ),
             ),
-          ),
-          const SizedBox(height: 16),
+            const SizedBox(height: 16),
 
-          // Horizontal scrollable cards (take remaining space)
-          Expanded(
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              physics: const BouncingScrollPhysics(),
-              itemCount: categories.length,
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              itemBuilder: (context, index) {
-                final c = categories[index];
-                return SizedBox(
-                  width: screenWidth * 0.85,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    child: CategoryCard(
-                      name: c.name,
-                      imageUrl: c.thumbnail,
-                      description: c.description,
-                      height: screenHeight * 0.6, // reduced height
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => MealsByCategoryScreen(
-                                categoryName: c.name),
-                          ),
-                        );
-                      },
+            // Horizontal scrollable cards (take remaining space)
+            SizedBox(
+              height: screenHeight * 0.6,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                physics: const BouncingScrollPhysics(),
+                itemCount: categories.length,
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                itemBuilder: (context, index) {
+                  final c = categories[index];
+                  return SizedBox(
+                    width: screenWidth * 0.85,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 12),
+                      child: CategoryCard(
+                        name: c.name,
+                        imageUrl: c.thumbnail,
+                        description: c.description,
+                        height: screenHeight * 0.6, // reduced height
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => MealsByCategoryScreen(
+                                  categoryName: c.name),
+                            ),
+                          );
+                        },
+                      ),
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             ),
-          ),
-        ],
+
+
+          ],
+        ),
       ),
     );
   }

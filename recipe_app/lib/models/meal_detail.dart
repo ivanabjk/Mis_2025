@@ -1,4 +1,3 @@
-// lib/models/meal_detail.dart
 class MealDetail {
   final String id;
   final String name;

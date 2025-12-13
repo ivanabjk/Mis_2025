@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:recipe_app/providers/favorites_provider.dart';
 import '../providers/meals_provider.dart';
 import '../providers/random_recipe_provider.dart';
 import '../widgets/meal_card.dart';
@@ -24,6 +25,8 @@ class _MealsByCategoryScreenState extends State<MealsByCategoryScreen> {
     Future.microtask(() =>
         Provider.of<MealsProvider>(context, listen: false)
             .loadMeals(widget.categoryName));
+    Future.microtask(() =>
+        Provider.of<FavoritesProvider>(context, listen: false).loadFavorites());
   }
 
   Future<void> _performSearch(String query) async {
@@ -40,6 +43,7 @@ class _MealsByCategoryScreenState extends State<MealsByCategoryScreen> {
   @override
   Widget build(BuildContext context) {
     final mealsProvider = Provider.of<MealsProvider>(context);
+    final favoritesProvider = Provider.of<FavoritesProvider>(context);
     final meals = _searchQuery.isEmpty ? mealsProvider.meals : _searchResults;
 
     return Scaffold(
@@ -77,16 +81,23 @@ class _MealsByCategoryScreenState extends State<MealsByCategoryScreen> {
               padding: const EdgeInsets.all(8),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2, // 2 columns
-                childAspectRatio: 0.8,
+                childAspectRatio: 0.75,
                 crossAxisSpacing: 8,
                 mainAxisSpacing: 8,
               ),
               itemCount: meals.length,
               itemBuilder: (context, index) {
                 final meal = meals[index];
+                final isFav = favoritesProvider.isFavorite(meal.id);
+
                 return MealCard(
                   name: meal.name,
                   imageUrl: meal.thumbnail,
+                  isFavorite: isFav,
+                  onFavoriteToggle: () async{
+                    await favoritesProvider.toggleFavorite(meal);
+                    if (mounted) setState(() {});
+                  },
                   onTap: () {
                     Navigator.push(
                       context,

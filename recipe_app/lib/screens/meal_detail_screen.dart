@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:recipe_app/models/meal_summary.dart';
+import '../providers/favorites_provider.dart';
 import '../providers/meal_detail_provider.dart';
-import '../providers/random_recipe_provider.dart';
 import '../widgets/ingredient_list.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -20,36 +21,39 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
     Future.microtask(() =>
         Provider.of<MealDetailProvider>(context, listen: false)
             .loadMeal(widget.mealId));
+    Future.microtask(() =>
+        Provider.of<FavoritesProvider>(context, listen: false)
+            .loadFavorites());
+
   }
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<MealDetailProvider>(context);
-    final meal = provider.meal;
+    final mealProvider = Provider.of<MealDetailProvider>(context);
+    final favorites = Provider.of<FavoritesProvider>(context);
+
+    final meal = mealProvider.meal;
+    final isFav = meal != null && favorites.isFavorite(meal.id);
 
     return Scaffold(
       appBar: AppBar(
         title: Text("Recipe"),
-        // actions: [
-        //   IconButton(
-        //     icon: const Icon(Icons.shuffle),
-        //     onPressed: () async {
-        //       final randomProvider = Provider.of<RandomRecipeProvider>(context, listen: false);
-        //       await randomProvider.loadRandomMeal();
-        //       final meal = randomProvider.meal;
-        //       if (meal != null && context.mounted) {
-        //         Navigator.push(
-        //           context,
-        //           MaterialPageRoute(
-        //             builder: (_) => MealDetailScreen(mealId: meal.id),
-        //           ),
-        //         );
-        //       }
-        //     },
-        //   ),
-        // ],
+        actions: [
+          if (meal != null)
+            IconButton(
+              icon: Icon(
+                isFav ? Icons.favorite : Icons.favorite_border,
+                color: Colors.red,
+              ),
+              onPressed: () async {
+                final summary = MealSummary(id: meal.id, name: meal.name, thumbnail: meal.thumbnail);
+                await favorites.toggleFavorite(summary);
+                if (mounted) setState(() {});
+              },
+            ),
+        ],
       ),
-      body: provider.loading
+      body: mealProvider.loading
           ? const Center(child: CircularProgressIndicator())
           : meal == null
           ? const Center(child: Text('Recipe not found'))
