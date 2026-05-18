@@ -21,8 +21,8 @@ Recipe App is a cross‑platform mobile application that allows users to browse,
 - Includes **Login** and **Register** screens  
 
 <p align="center">
-  <img src="recipe_app_images_lab3/RegisterScreen.png" alt="Register Screen" height="550"/>
-  <img src="recipe_app_images_lab3/LoginScreen.png" alt="Login Screen" height="550"/>
+  <img src="../recipe_app_images_lab3/RegisterScreen.png" alt="Register Screen" height="550"/>
+  <img src="../recipe_app_images_lab3/LoginScreen.png" alt="Login Screen" height="550"/>
 </p>
 
 ---
@@ -34,10 +34,10 @@ Recipe App is a cross‑platform mobile application that allows users to browse,
 - Contains a **drawer** with navigation options: Home, Profile, Favorites, Logout.  
 
 <p align="center">
-  <img src="recipe_app_images_lab3/Drawer.png" alt="Drawer" height="400"/>
-  <img src="recipe_app_images_lab3/OpenedDrawer.png" alt="Opened Drawer" height="400"/>
-  <img src="recipe_app_images/RandomMealButton.png" alt="Random Meal Button" height="400"/>
-  <img src="recipe_app_images/RandomRecipe.png" alt="Random Recipe" height="400"/>
+  <img src="../recipe_app_images_lab3/Drawer.png" alt="Drawer" height="400"/>
+  <img src="../recipe_app_images_lab3/OpenedDrawer.png" alt="Opened Drawer" height="400"/>
+  <img src="../recipe_app_images/RandomMealButton.png" alt="Random Meal Button" height="400"/>
+  <img src="../recipe_app_images/RandomRecipe.png" alt="Random Recipe" height="400"/>
 </p>
 
 ---
@@ -50,10 +50,10 @@ Recipe App is a cross‑platform mobile application that allows users to browse,
   - Access the random recipe of the day  
 
 <p align="center">
-  <img src="recipe_app_images/CategoryScreen1.png" alt="Category Screen 1" height="400"/>
-  <img src="recipe_app_images/CategoryScreen2_HorizontalScroll.png" alt="Category Screen Horizontal Scroll" height="400"/>
-  <img src="recipe_app_images/CategoryScreen4_Searchbar.png" alt="Category Screen Searchbar" height="400"/>
-  <img src="recipe_app_images_lab3/AddedToFavoritesFromMealScreen.png" alt="Added to Favorites from Meal Screen" height="400"/>
+  <img src="../recipe_app_images/CategoryScreen1.png" alt="Category Screen 1" height="400"/>
+  <img src="../recipe_app_images/CategoryScreen2_HorizontalScroll.png" alt="Category Screen Horizontal Scroll" height="400"/>
+  <img src="../recipe_app_images/CategoryScreen4_Searchbar.png" alt="Category Screen Searchbar" height="400"/>
+  <img src="../recipe_app_images_lab3/AddedToFavoritesFromMealScreen.png" alt="Added to Favorites from Meal Screen" height="400"/>
 </p>
 
 ---
@@ -66,7 +66,7 @@ Recipe App is a cross‑platform mobile application that allows users to browse,
   - Access the random recipe of the day  
 
 <p align="center">
-  <img src="recipe_app_images_lab3/AddedToFavoritesFromMealDetailScreen.png" alt="Added to Favorites from Meal Detail Screen" height="550"/>
+  <img src="../recipe_app_images_lab3/AddedToFavoritesFromMealDetailScreen.png" alt="Added to Favorites from Meal Detail Screen" height="550"/>
 </p>
 
 ---
@@ -76,7 +76,7 @@ Recipe App is a cross‑platform mobile application that allows users to browse,
 - Includes a **Logout button** to sign out.  
 
 <p align="center">
-  <img src="recipe_app_images_lab3/ProfileScreen.png" alt="Profile Screen" height="550"/>
+  <img src="../recipe_app_images_lab3/ProfileScreen.png" alt="Profile Screen" height="550"/>
 </p>
 
 ---
@@ -86,7 +86,7 @@ Recipe App is a cross‑platform mobile application that allows users to browse,
 - Allows users to manage their favorite recipes.  
 
 <p align="center">
-  <img src="recipe_app_images_lab3/UpdatedFavoritesScreen.png" alt="Updated Favorites Screen" height="550"/>
+  <img src="../recipe_app_images_lab3/UpdatedFavoritesScreen.png" alt="Updated Favorites Screen" height="550"/>
 </p>
 
 ---
@@ -95,7 +95,7 @@ Recipe App is a cross‑platform mobile application that allows users to browse,
 - Sends a **daily push notification** reminding users to check out the recipe of the day.
 
 <p align="center">
-  <img src="recipe_app_images_lab3/NotificationFromApp.png" alt="Notification From App" height="550"/>
+  <img src="../recipe_app_images_lab3/NotificationFromApp.png" alt="Notification From App" height="550"/>
 </p>
 
 ---
