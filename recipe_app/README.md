@@ -62,8 +62,7 @@ Recipe App is a cross‑platform mobile application that allows users to browse,
 - Displays full details of a selected recipe.  
 - Users can:
   - View ingredients and instructions  
-  - Add the recipe to their favorites  
-  - Access the random recipe of the day  
+  - Add the recipe to their favorites
 
 <p align="center">
   <img src="../recipe_app_images_lab3/AddedToFavoritesFromMealDetailScreen.png" alt="Added to Favorites from Meal Detail Screen" height="550"/>
