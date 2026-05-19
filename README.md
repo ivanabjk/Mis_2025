@@ -34,10 +34,10 @@ Recipe App is a cross‑platform mobile application that allows users to browse,
 - Contains a **drawer** with navigation options: Home, Profile, Favorites, Logout.  
 
 <p align="center">
-  <img src="../recipe_app_images_lab3/Drawer.png" alt="Drawer" height="400"/>
-  <img src="../recipe_app_images_lab3/OpenedDrawer.png" alt="Opened Drawer" height="400"/>
-  <img src="../recipe_app_images/RandomMealButton.png" alt="Random Meal Button" height="400"/>
-  <img src="../recipe_app_images/RandomRecipe.png" alt="Random Recipe" height="400"/>
+  <img src="recipe_app_images_lab3/Drawer.png" alt="Drawer" height="400"/>
+  <img src="recipe_app_images_lab3/OpenedDrawer.png" alt="Opened Drawer" height="400"/>
+  <img src="recipe_app_images/RandomMealButton.png" alt="Random Meal Button" height="400"/>
+  <img src="recipe_app_images/RandomRecipe.png" alt="Random Recipe" height="400"/>
 </p>
 
 ---
